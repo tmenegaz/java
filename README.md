@@ -1,2 +1,2 @@
 # javaAula
-Apresenta para o estudantes de programação uma aspectos gerais da linguagem de programação java
+Apresenta para o estudantes de programação alguns dos aspectos gerais da linguagem de programação java.
