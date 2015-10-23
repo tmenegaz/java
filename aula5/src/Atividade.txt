@@ -1,0 +1,49 @@
+1) Declare uma interface com uma constante e um método que
+deverá ser implementada em uma classe e testada em outra.
+
+2) Modificador de acesso public
+Para as classes abaixo indique quais das três formas de acesso
+são possíveis para cada método, a saber:
+(D) Invoca um método declarado na mesma classe;
+(R) Invoca um método usandouma referência da classe;
+(H) Invoca um método herdado;
+
+        Classe CarroSport é a super classe com métodos
+    (D)   vaiRapido(){}
+        fazCoisa(){vaiRapido();}
+        
+        Classe convercivel é subclasse com métodos
+    (R)   fazCoisas(){CarroSport cs = new CarroSport();
+                    cs.vaiRapido();}
+    (H)  fazMais(){vaiRapido();}
+        
+        Classe Dirigir é apenas uma classe com métodos.
+    (R)    fazCoisaMotorista(){CarroSport carro = new CarroSport();
+        carro.vaiRapido();
+    (R)    convercivel con = new convercivel();
+        con.vaiRapido();}
+
+3) Modificador de acesso private
+Para as classes abaixo indique quais das três formas de acesso
+são possíveis para cada método, a saber:
+(D) Invoca um método declarado na mesma classe;
+(R) Invoca um método usandouma referência da classe;
+(H) Invoca um método herdado;
+(X) Impossível.
+
+        Classe CarroSport é a super classe com métodos
+    (D)    vaiRapido(){}
+    (D)    fazCoisa(){vaiRapido();}
+        
+        Classe convercivel é subclasse com métodos
+    (X)    fazCoisas(){CarroSport cs = new CarroSport();
+                    cs.vaiRapido();}
+    (X)    fazMais(){vaiRapido();}
+        
+        Classe Dirigir é apenas uma classe com métodos.
+    (X)    fazCoisaMotorista(){CarroSport carro = new CarroSport();
+        carro.vaiRapido();
+    (X)    convercivel con = new convercivel();
+        con.vaiRapido();}
+
+
