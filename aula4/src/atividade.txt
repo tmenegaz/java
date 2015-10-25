@@ -1,0 +1,11 @@
+criar uma super classe;
+criar uma classe sub1 em um arquivo separado
+criar uma classe sub1a em um arquivo separado
+A super classe deverá ser abstrata com 1 método
+abstrato e um método não abstrato.
+A sub1 é final e deverá implementar o método
+abstrato da super.
+A sub1a deverá instanciar a sub1, pois a sub1 é
+final.
+Este fluxo (super -> sub1 -> sub1a) de herança é
+possivel? mostre o código para sua resposta.
