@@ -19,4 +19,8 @@ public class ObjetoAnimais{
 	public String miado = gato.somGato;
 	public int patasGato = animais.quantPatas;
 	public String alimentoGato = animais.alimento;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Signed-off-by: tmenegaz <tmeengaz77@gmail.com>

@@ -22,4 +22,8 @@ public class TesteAnimais{
 		obj.patasGato + " patas");
 		System.out.println("O gato come "+ obj.alimentoGato);
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Signed-off-by: tmenegaz <tmeengaz77@gmail.com>
