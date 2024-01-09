@@ -1,4 +1,5 @@
-.vscode
+.vscode/*
+*/.vscode/*
 *.class
 
 # Mobile Tools for Java (J2ME)
