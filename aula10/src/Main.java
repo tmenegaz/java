@@ -1,5 +1,8 @@
+import com.mti.agencia.Hotel;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Hotel hotelOton = new Hotel("Oton", "Salvador", 180.00);
+        System.out.println(hotelOton.getPrecoDiaria());
     }
 }
