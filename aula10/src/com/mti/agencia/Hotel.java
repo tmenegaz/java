@@ -2,7 +2,7 @@ package com.mti.agencia;
 
 import java.util.Objects;
 
-public class Hotel {
+public class Hotel implements Comparable<Hotel> {
 
     private String nome;
     private String cidade;
@@ -52,41 +52,19 @@ public class Hotel {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-        result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
-        result = prime * result + ((precoDiaria == null) ? 0 : precoDiaria.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Hotel hotel)) return false;
+        return Objects.equals(getNome(), hotel.getNome());
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Hotel other = (Hotel) obj;
-        if (nome == null) {
-            if (other.nome != null)
-                return false;
-        } else if (!nome.equals(other.nome))
-            return false;
-        if (cidade == null) {
-            if (other.cidade != null)
-                return false;
-        } else if (!cidade.equals(other.cidade))
-            return false;
-        if (precoDiaria == null) {
-            if (other.precoDiaria != null)
-                return false;
-        } else if (!precoDiaria.equals(other.precoDiaria))
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(getNome());
     }
 
-    
+    @Override
+    public int compareTo(Hotel hotel) {
+        return getNome().compareTo(hotel.getNome());
+    }
 }
