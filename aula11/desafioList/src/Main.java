@@ -5,24 +5,29 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
         CadastroPacoteViagem cadastro = new CadastroPacoteViagem();
         cadastro.adicionar("Istambul e Capadócia (20 noites)", 18_000);
         cadastro.adicionar("Neve em Bariloche (10 noites)", 11_000);
-        cadastro.adicionar("Disney (10 noites)", 20_000);
+        cadastro.adicionar("Disney (7 noites)", 10_000);
         cadastro.adicionar("Natal Luz em Gramado (5 noites)", 8_500);
+        // cadastro.adicionar("Natal Luz em Gramado (5 noites)", 8_500);
 
-//        cadastro.removerPorDescricao("Disney (7 noites)");
+    //    cadastro.removerPorDescricao("Disney (7 noites)");
 
-//        cadastro.ordenar();
-//        cadastro.ordenarPorPrecoDecrescente();
+       cadastro.ordenar();
+    //    cadastro.ordenarPorPrecoDecrescente();
 
-//        PacoteViagem pacoteEncontrado = cadastro.buscarPorDescricao("Disney (7 noites)");
-//        System.out.println(pacoteEncontrado);
+       PacoteViagem pacoteEncontrado = cadastro.buscarPorDescricao("Disney (7 noites)");
+       System.out.println("\nEncontrou: " + pacoteEncontrado + "\n");
 
         imprimirPacotes(cadastro.obterTodos());
     }
 
     private static void imprimirPacotes(List<PacoteViagem> pacotes) {
         // TODO iterar nos pacotes e imprimir descrição e preço
+        for (PacoteViagem pacoteViagem : pacotes) {
+            System.out.printf("descrição: %s%npreço: %.2f%n", pacoteViagem.getDescricao(), pacoteViagem.getPrecoPorPessoa());
+        }
     }
 }

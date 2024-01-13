@@ -15,6 +15,7 @@ public class Main {
     cadastroHotel.adicionar(hotelOton);
     cadastroHotel.adicionar(hotelIbis);
     cadastroHotel.adicionar(hotelReal);
+    cadastroHotel.adicionar(hotelVila);
     cadastroHotel.adicionar(new Hotel("Bela Praia", "Ilheus", 340d));
     cadastroHotel.adicionar(new Hotel("Fazenda Aurora", "Passo Fundo", 98d));
 
