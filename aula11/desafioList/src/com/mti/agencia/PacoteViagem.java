@@ -42,7 +42,6 @@ public class PacoteViagem implements Comparable<PacoteViagem> {
                 '}';
     }
 
-    // TODO implementar equals e hashCode
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -68,7 +67,6 @@ public class PacoteViagem implements Comparable<PacoteViagem> {
         return true;
     }
 
-    // TODO implementar compareTo
     @Override
     public int compareTo(PacoteViagem o) {
         return getDescricao().compareTo(o.descricao);
