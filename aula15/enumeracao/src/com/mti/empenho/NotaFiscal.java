@@ -1,15 +1,15 @@
 package com.mti.empenho;
 
-public class NotaFiscal {
+import com.mti.empenho.enums.Status;
+import static com.mti.empenho.enums.Status.*;
 
-  public static final int STATUS_NAO_EMITIDA = 0;
-  public static final int STATUS_EMITIDA = 1;
-  public static final int STATUS_CANCELADA = 2;
+public class NotaFiscal {
 
   private final Integer numero;
   private final String descricao;
   private final double valor;
-  private int status = STATUS_NAO_EMITIDA;
+  private int status = NAO_EMITIDA.getIndice();
+//  private int status = EMITIDA.getIndice();
 
   public NotaFiscal(Integer numero, String descricao, double valor) {
       this.numero = numero;
@@ -34,27 +34,27 @@ public class NotaFiscal {
   }
 
   public void cancelar() {
-      if ((status == STATUS_EMITIDA && getValor() >= 1_000)
-              || status == STATUS_CANCELADA) {
+      if ((getStatus() == EMITIDA.ordinal() && (getValor() >= 10_000))
+              || getStatus() == CANCELADA.ordinal()) {
           throw new IllegalStateException("Não foi possível cancelar a nota fiscal");
       }
 
-      status = STATUS_CANCELADA;
+      status = CANCELADA.ordinal();
   }
 
   public void emitir() {
-      if (status == STATUS_EMITIDA || status == STATUS_CANCELADA) {
+      if (getStatus() == EMITIDA.ordinal() || getStatus() == CANCELADA.ordinal()) {
           throw new IllegalStateException("Não foi possível emitir a nota fiscal");
       }
 
-      status = STATUS_EMITIDA;
+      status = EMITIDA.ordinal();
   }
 
   public String getDescricaoCompleta() {
       String descricaoStatus = switch (status) {
-          case STATUS_NAO_EMITIDA -> "Não emitida";
-          case STATUS_EMITIDA -> "Emitida";
-          case STATUS_CANCELADA -> "Cancelada";
+          case 0 -> NAO_EMITIDA.name();
+          case 1 -> EMITIDA.name();
+          case 2 -> CANCELADA.name();
           default -> throw new RuntimeException("Status não tratado");
       };
 
