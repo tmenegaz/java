@@ -1,0 +1,1 @@
+curl http://localhost:8080/planets -H 'Content-Type: application/json' -d '{"name": "name", "climate": "climate", "terrain": "terrain" }' -v
