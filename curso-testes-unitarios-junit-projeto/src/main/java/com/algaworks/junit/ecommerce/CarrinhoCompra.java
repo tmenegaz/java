@@ -2,9 +2,11 @@ package com.algaworks.junit.ecommerce;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
+
+import com.algaworks.junit.ecommerce.exceptions.CarrinmhoCompraExceptiosn;
 
 public class CarrinhoCompra {
 
@@ -16,15 +18,15 @@ public class CarrinhoCompra {
 	}
 
 	public CarrinhoCompra(Cliente cliente, List<ItemCarrinhoCompra> itens) {
-		Objects.requireNonNull(cliente);
-		Objects.requireNonNull(itens);
+		Objects.requireNonNull(cliente, "Cliente não pode ser nulo");
+		Objects.requireNonNull(itens, "Lista não pode ser nula");
 		this.cliente = cliente;
 		this.itens = new ArrayList<>(itens); //Cria lista caso passem uma imutável
 	}
 
 	public List<ItemCarrinhoCompra> getItens() {
 		//TODO deve retornar uma nova lista para que a antiga não seja alterada
-		return null;
+		return new ArrayList<ItemCarrinhoCompra>(itens);
 	}
 
 	public Cliente getCliente() {
@@ -33,8 +35,31 @@ public class CarrinhoCompra {
 
 	public void adicionarProduto(Produto produto, int quantidade) {
 		//TODO parâmetros não podem ser nulos, deve retornar uma exception
+		if (isProdutoNull(produto)) {
+			throw new CarrinmhoCompraExceptiosn("O carrinho não pode ser nulo");
+		}
+		
 		//TODO quantidade não pode ser menor que 1
+		if (isQuantidadeMinima(quantidade)) {
+			throw new CarrinmhoCompraExceptiosn("A quantidade não pode ser nula ou menor do que 1");
+		}
+		
 		//TODO deve incrementar a quantidade caso o produto já exista
+		for(ItemCarrinhoCompra item : getItens()){
+			if(produto.equals(item.getProduto())) {
+				quantidade++;
+			}
+		}
+		
+		this.itens.add(new ItemCarrinhoCompra(produto, quantidade));
+	}
+
+	private boolean isQuantidadeMinima(int quantidade) {
+		return quantidade < 1;
+	}
+
+	private boolean isProdutoNull(Produto produto) {
+		return produto == null;
 	}
 
 	public void removerProduto(Produto produto) {
