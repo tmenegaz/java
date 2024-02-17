@@ -1,14 +1,14 @@
 package br.com.mti.dominio;
 
-import br.com.mti.dominio.builder.UsuarioBuilder;
+import static br.com.mti.dominio.builder.UsuarioBuilder.novoUsuario;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
-
-import static br.com.mti.dominio.builder.UsuarioBuilder.novoUsuario;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Domínio: Usuário")
 public class UsuarioTeste {
